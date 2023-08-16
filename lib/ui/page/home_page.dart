@@ -14,6 +14,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  double value = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,17 +22,24 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: const Center(
+      body: Center(
           child: Column(
         children: [
           IconButton(
-              onPressed: null, icon: Icon(Icons.refresh), key: Key('Refresh')),
+              onPressed: _incrementUnit, icon: Icon(Icons.refresh), key: Key('Refresh')),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[W1(), W2(), W3()],
+            children: <Widget>[W1(value: value), W2(), W3()],
           ),
         ],
       )),
     );
+  }
+  
+  void _incrementUnit(){
+    setState(() {
+      value += 1;
+      value = double.parse(value.toStringAsFixed(1));
+    });
   }
 }

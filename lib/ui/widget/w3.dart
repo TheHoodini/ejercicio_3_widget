@@ -20,6 +20,5 @@ class W3 extends StatelessWidget {
         IconButton(onPressed: null, icon: Icon(Icons.remove), key: Key('W3Sub'))
       ],
     );
-    ;
   }
 }
